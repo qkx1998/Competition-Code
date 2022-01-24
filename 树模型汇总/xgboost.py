@@ -28,12 +28,3 @@ for i, (ta_idx , val_idx) in enumerate(kf.split(train,train[label])):
     test_pred +=  model_xgb.predict_proba(test[used_cols])[:,1] / kf.n_splits
     imp = pd.Series(model_xgb.feature_importances_, used_cols).sort_values(ascending=False)
     gc.collect()
-### make prediction for test data
-y_pred = model.predict(x_test)
- 
-### model evaluate
-accuracy = accuracy_score(y_test,y_pred)
-print("accuarcy: %.2f%%" % (accuracy*100.0))
-"""
-95.74%
-
